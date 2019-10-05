@@ -11,8 +11,7 @@
                     Password:
                 </label>
                 <input type="password" class="text_like_input" #passwordLog />
-                <input value="Log in" type="submit" class="button_like_input" *ngIf="loginSubmition(emailLog, passwordLog) == true" (click) = "loginSubmition(emailLog, passwordLog)" />
-                <input value="Log in" type="submit" class="button_like_input" *ngIf="loginSubmition(emailLog, passwordLog) != true" (click) = "loginSubmition(emailLog, passwordLog)" />
+                <input value="Log in" type="submit" class="button_like_input" (click) = "loginSubmition(emailLog, passwordLog)" />
             </form>
         </div>
         <div></div>
@@ -31,10 +30,8 @@
                     Confirm Password:
                 </label>
                 <input type="password" class="text_like_input" #confirmPassword />
-                <input value="Register" type="submit" class="button_like_input" *ngIf="registerSubmition(emailReg, passwordReg, confirmPassword) == true"  (click) = "registerSubmition(emailReg, passwordReg, confirmPassword)" />
-                <input value="Register" type="submit" class="button_like_input" *ngIf="registerSubmition(emailReg, passwordReg, confirmPassword) != true"  (click) = "registerSubmition(emailReg, passwordReg, confirmPassword)" />
+                <input value="Register" type="submit" class="button_like_input" (click) = "registerSubmition(emailReg, passwordReg, confirmPassword)" />
             </form>
-            <!-- <div></div> -->
         </div>
     </div>
 </div>

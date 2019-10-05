@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-logreg',
@@ -7,26 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogregComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   loginSubmition(emailLog, passwordLog) {
-    if (!emailLog.value || !passwordLog.value) return false
+    if (!emailLog.value || !passwordLog.value) return
 
-    alert('Logged In!')
-    return true
+    this.router.navigateByUrl('/main');
+    return
   }
 
   registerSubmition(emailReg, passwordReg, confirmPassword) {
-    if(!emailReg.value.includes('@')) return false
-    if (!emailReg.value || !passwordReg.value) return false
-    if (passwordReg.value <= 6) return false
-    if (passwordReg.value != confirmPassword.value) return false
+    if(!emailReg.value.includes('@')) return
+    if (!emailReg.value || !passwordReg.value) return
+    if (passwordReg.value <= 6) return
+    if (passwordReg.value != confirmPassword.value) return
 
-    alert('Registered!')
-    return true
+    this.router.navigateByUrl('/main');
+    return
   }
 
 }
