@@ -12,4 +12,13 @@ export class LogregComponent implements OnInit {
   ngOnInit() {
   }
 
+  registerSubmition(emailReg, passwordReg, confirmPassword) {
+    if (!emailReg.value || !passwordReg.value) return false
+    if (passwordReg.value <= 6) return false
+    if (passwordReg.value != confirmPassword.value) return false
+
+    alert('Registered!')
+    return true;
+  }
+
 }

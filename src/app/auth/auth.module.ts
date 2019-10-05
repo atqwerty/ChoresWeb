@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LogregComponent } from './logreg/logreg.component';
 import { AuthRoutingModule } from './auth-routing/auth-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -9,7 +10,8 @@ import { AuthRoutingModule } from './auth-routing/auth-routing.module';
   declarations: [LogregComponent],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    FormsModule
   ]
 })
 export class AuthModule { }

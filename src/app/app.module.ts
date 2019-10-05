@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LogregComponent } from './auth/logreg/logreg.component';
 import { AuthModule } from './auth/auth.module';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule
+    AuthModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

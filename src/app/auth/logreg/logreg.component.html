@@ -21,18 +21,19 @@
                 <label>
                     E-mail:
                 </label>
-                <input type="text" class="text_like_input" />
+                <input type="text" class="text_like_input" #emailReg />
                 <label>
                     Password:
                 </label>
-                <input type="password" class="text_like_input" />
+                <input type="password" class="text_like_input" #passwordReg />
                 <label>
                     Confirm Password:
                 </label>
-                <input type="password" class="text_like_input" />
-                <input value="Register" type="submit" class="button_like_input" />
+                <input type="password" class="text_like_input" #confirmPassword />
+                <input value="Register" type="submit" class="button_like_input" *ngIf="registerSubmition(emailReg, passwordReg, confirmPassword) == true"  (click) = "registerSubmition(emailReg, passwordReg, confirmPassword)" />
+                <input value="Register" type="submit" class="button_like_input" *ngIf="registerSubmition(emailReg, passwordReg, confirmPassword) != true"  (click) = "registerSubmition(emailReg, passwordReg, confirmPassword)" />
             </form>
-            <div></div>
+            <!-- <div></div> -->
         </div>
     </div>
 </div>
