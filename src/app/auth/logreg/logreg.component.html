@@ -6,12 +6,13 @@
                 <label>
                     E-mail:
                 </label>
-                <input type="text" class="text_like_input" />
+                <input type="text" class="text_like_input" #emailLog />
                 <label>
                     Password:
                 </label>
-                <input type="password" class="text_like_input" />
-                <input value="Log in" type="submit" class="button_like_input" />
+                <input type="password" class="text_like_input" #passwordLog />
+                <input value="Log in" type="submit" class="button_like_input" *ngIf="loginSubmition(emailLog, passwordLog) == true" (click) = "loginSubmition(emailLog, passwordLog)" />
+                <input value="Log in" type="submit" class="button_like_input" *ngIf="loginSubmition(emailLog, passwordLog) != true" (click) = "loginSubmition(emailLog, passwordLog)" />
             </form>
         </div>
         <div></div>
