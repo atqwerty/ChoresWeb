@@ -13,6 +13,7 @@ export class LogregComponent implements OnInit {
   }
 
   registerSubmition(emailReg, passwordReg, confirmPassword) {
+    if(!emailReg.value.includes('@')) return false;
     if (!emailReg.value || !passwordReg.value) return false
     if (passwordReg.value <= 6) return false
     if (passwordReg.value != confirmPassword.value) return false
