@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserFlowService } from 'src/app/user-flow.service';
-import { User } from 'src/app/user';
+import { UserFlowService } from 'src/app/services/userFlowService/user-flow.service';
+import { User } from 'src/app/classes/user/user';
 
 @Component({
   selector: 'app-logreg',
