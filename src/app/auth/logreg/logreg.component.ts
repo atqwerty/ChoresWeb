@@ -20,7 +20,7 @@ export class LogregComponent implements OnInit {
     if (!emailLog.value || !passwordLog.value) return
 
     this.user = new User(emailLog.value, passwordLog.value)
-    this.userFlowService.passUserData(this.user.getEmail());
+    this.userFlowService.passUserData(this.user);
 
     this.router.navigateByUrl('/main');
     return
@@ -33,7 +33,7 @@ export class LogregComponent implements OnInit {
     if (passwordReg.value != confirmPassword.value) return
 
     this.user = new User(emailReg.value, passwordReg.value)
-    this.userFlowService.passUserData(this.user.getEmail());
+    this.userFlowService.passUserData(this.user);
 
     this.router.navigateByUrl('/main');
     return

@@ -13,6 +13,6 @@ export class UserFlowService {
   }
 
   passUserData = (data) => {
-    console.log(data);
+    this.passUserDataSubject.next(data);
   }
 }
