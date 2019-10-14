@@ -7,10 +7,12 @@ import { LogregComponent } from './auth/logreg/logreg.component';
 import { AuthModule } from './auth/auth.module';
 import { FormsModule } from '@angular/forms'
 import { MainModule } from './main/main.module';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
