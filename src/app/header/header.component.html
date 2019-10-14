@@ -1,5 +1,5 @@
 <div id="header">
-    <h1 style="margin: 0; margin-left: 10px;">Chores</h1>
-    <div *ngIf="loggedIn">{{this.user.getEmail()}}</div>
-    <div *ngIf="!loggedIn"><input type="button" value="Log In / Register" (click)="router.navigate(['/logreg'])" /></div>
+    <h1 id="logo">Chores</h1>
+    <div class="header-right" *ngIf="loggedIn"><p id="userGreeting">Logged as: {{this.user.getEmail()}}</p></div>
+    <div class="header-right" *ngIf="!loggedIn"><input id="logregButton" type="button" value="Log In / Register" (click)="router.navigate(['/logreg'])" /></div>
 </div>
