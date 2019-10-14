@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserFlowService } from 'src/app/user-flow.service';
+import { User } from 'src/app/user';
 
 @Component({
   selector: 'app-logreg',
@@ -8,7 +9,7 @@ import { UserFlowService } from 'src/app/user-flow.service';
   styleUrls: ['./logreg.component.css']
 })
 export class LogregComponent implements OnInit {
-  public data = "asdf";
+  public user: User
 
   constructor(private router: Router, private userFlowService: UserFlowService) { }
 
@@ -18,7 +19,8 @@ export class LogregComponent implements OnInit {
   loginSubmition(emailLog, passwordLog) {
     if (!emailLog.value || !passwordLog.value) return
 
-    this.userFlowService.passUserData(this.data);
+    this.user = new User(emailLog.value, passwordLog.value)
+    this.userFlowService.passUserData(this.user.getEmail());
 
     this.router.navigateByUrl('/main');
     return
@@ -30,7 +32,8 @@ export class LogregComponent implements OnInit {
     if (passwordReg.value <= 6) return
     if (passwordReg.value != confirmPassword.value) return
 
-    this.userFlowService.passUserData(this.data);
+    this.user = new User(emailReg.value, passwordReg.value)
+    this.userFlowService.passUserData(this.user.getEmail());
 
     this.router.navigateByUrl('/main');
     return
