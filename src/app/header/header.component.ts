@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserFlowService } from 'src/app/services/userFlowService/user-flow.service';
+import { User } from 'src/app/classes/user/user'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-header',
@@ -6,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  private user: User
+  private loggedIn: boolean = false
+  
+  constructor(private router: Router, private userFlowService: UserFlowService) {
+    this.userFlowService.passUserData$.subscribe((data) => {
+      this.user = data
+      
+      if (this.user) this.loggedIn = true
+    })
+  }
 
   ngOnInit() {
   }
+
 
 }
