@@ -7,12 +7,13 @@
     background-color: #EB1360;
 }
 #content {
+    display: inline-flex;
     margin-top: 100px;
     width: 100%;
     height: calc(100% - 100px);
 }
 .content_holder {
-    display: inline-block;
+    /* display: inline-table; */
     width: 30%;
     height: 100%;
 }
@@ -34,4 +35,28 @@
 .section_label {
     text-align: center;
     font-family: monospace;
+}
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 15px;
+}
+
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 15px;
+}
+.content_table {
+    display: inline-block;
+    border-spacing: 0;
+    /* border-collapse: collapse;
+    border-radius: 1em;
+    overflow: hidden; */
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+}
+.content_table::-webkit-scrollbar { 
+    width: 0 !important;
+    height: 0 !important;
+}
+.board_row {
+    height: 100px;
 }
