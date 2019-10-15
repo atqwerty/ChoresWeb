@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { MustMatch } from '../helpers/must-match-validator'
+import { User } from 'src/app/classes/user/user';
+import { UserFlowService } from 'src/app/services/userFlowService/user-flow.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-form',
@@ -9,8 +11,9 @@ import { MustMatch } from '../helpers/must-match-validator'
 })
 export class RegisterFormComponent implements OnInit {
   private registerForm: FormGroup
+  public user: User
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private userFlowService: UserFlowService, private router: Router) { }
 
   ngOnInit() {
     this.registerForm = this.fb.group({
@@ -38,5 +41,12 @@ export class RegisterFormComponent implements OnInit {
 
   get confirmPassword() {
     return this.registerForm.get("confirmPassword")
+  }
+
+  onSubmit = () => {
+    this.user = new User(this.emailReg.value, this.passwordReg.value)
+    this.userFlowService.passUserData(this.user)
+
+    this.router.navigateByUrl('/main')
   }
 }

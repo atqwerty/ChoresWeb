@@ -1,4 +1,4 @@
-<form [formGroup]="registerForm" id="register_form">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" id="register_form">
     <label>
         Email:
     </label>
@@ -7,13 +7,14 @@
     <label>
         Password:
     </label>
-    <input class="text_like_input" formControlName="passwordReg" />
+    <input type="password" class="text_like_input" formControlName="passwordReg" />
     <div class="input_message" *ngIf="passwordReg.invalid && passwordReg.touched">Password is invalid</div>
     <label>
         Confirm Password:
     </label>
-    <input class="text_like_input" formControlName="confirmPassword" />
+    <input type="password" class="text_like_input" formControlName="confirmPassword" />
     <div class="input_message" *ngIf="registerForm.get('passwordReg').value !== 
         registerForm.get('confirmPassword').value || (confirmPassword.touched && 
             registerForm.get('confirmPassword').value === null)" >Passwords do not match</div>
+    <input [disabled]="!registerForm.valid" value="Register" type="submit" class="button_like_input" />
 </form>

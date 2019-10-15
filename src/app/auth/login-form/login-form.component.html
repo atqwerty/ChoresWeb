@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" id="login_form">
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="login_form">
     <label>
         E-mail:
     </label>
@@ -9,5 +9,5 @@
     </label>
     <input class="text_like_input" type="password" formControlName="password" />
     <div class="input_message" *ngIf="password.invalid && password.touched">Password is invalid</div>
-    <input value="Log in" type="submit" class="button_like_input" />
+    <input [disabled]="!loginForm.valid" value="Log in" type="submit" class="button_like_input" />
 </form>
