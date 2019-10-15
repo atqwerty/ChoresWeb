@@ -3,18 +3,20 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: 'main',
-    loadChildren: () => import('./main/main.module')
-    .then(mod => mod.MainModule) },
   {
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full'
+    path: 'main',
+    loadChildren: () => import('./main/main.module')
+      .then(mod => mod.MainModule)
   },
   {
     path: 'logreg',
     loadChildren: () => import('./auth/auth.module')
-      .then(m => m.AuthModule)
+    .then(mod => mod.AuthModule)
+  },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
   }
 ];
 
