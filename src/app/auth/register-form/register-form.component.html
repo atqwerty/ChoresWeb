@@ -1,0 +1,20 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" id="register_form">
+    <label>
+        Email:
+    </label>
+    <input class="text_like_input" formControlName="emailReg" />
+    <div class="input_message" *ngIf="emailReg.invalid && emailReg.touched">Email is invalid</div>
+    <label>
+        Password:
+    </label>
+    <input type="password" class="text_like_input" formControlName="passwordReg" />
+    <div class="input_message" *ngIf="passwordReg.invalid && passwordReg.touched">Password is invalid</div>
+    <label>
+        Confirm Password:
+    </label>
+    <input type="password" class="text_like_input" formControlName="confirmPassword" />
+    <div class="input_message" *ngIf="registerForm.get('passwordReg').value !== 
+        registerForm.get('confirmPassword').value || (confirmPassword.touched && 
+            registerForm.get('confirmPassword').value === null)" >Passwords do not match</div>
+    <input [disabled]="!registerForm.valid" value="Register" type="submit" class="button_like_input" />
+</form>

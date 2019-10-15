@@ -2,36 +2,39 @@
     <div id="forms_holder">
         <div class="form_holder">
             <h1 class="holder_label">Log in</h1>
-            <form id="login_form">
+            <!-- <form id="login_form">
                 <label>
                     E-mail:
                 </label>
-                <input type="text" class="text_like_input" #emailLog />
+                <input type="text" class="text_like_input" />
                 <label>
                     Password:
                 </label>
                 <input type="password" class="text_like_input" #passwordLog />
-                <input value="Log in" type="submit" class="button_like_input" (click) = "loginSubmition(emailLog, passwordLog)" />
-            </form>
+                <input 
+                value="Log in" type="submit" class="button_like_input" (click) = "loginSubmition(emailLog, passwordLog)" />
+            </form> -->
+            <app-login-form></app-login-form>
         </div>
         <div></div>
         <div class="form_holder">
             <h1 class="holder_label">Register</h1>
-            <form id="register_form">
-                <label>
-                    E-mail:
-                </label>
-                <input type="text" class="text_like_input" #emailReg />
-                <label>
-                    Password:
-                </label>
-                <input type="password" class="text_like_input" #passwordReg />
-                <label>
-                    Confirm Password:
-                </label>
-                <input type="password" class="text_like_input" #confirmPassword />
-                <input value="Register" type="submit" class="button_like_input" (click) = "registerSubmition(emailReg, passwordReg, confirmPassword)" />
-            </form>
+            <!-- <form id="register_form"> -->
+                <!-- <label> -->
+                    <!-- E-mail: -->
+                <!-- </label> -->
+                <!-- <input type="text" class="text_like_input" #emailReg /> -->
+                <!-- <label> -->
+                    <!-- Password: -->
+                <!-- </label> -->
+                <!-- <input type="password" class="text_like_input" #passwordReg /> -->
+                <!-- <label> -->
+                    <!-- Confirm Password: -->
+                <!-- </label> -->
+                <!-- <input type="password" class="text_like_input" #confirmPassword /> -->
+                <!-- <input value="Register" type="submit" class="button_like_input" (click) = "registerSubmition(emailReg, passwordReg, confirmPassword)" /> -->
+            <!-- </form> -->
+            <app-register-form></app-register-form>
         </div>
     </div>
 </div>

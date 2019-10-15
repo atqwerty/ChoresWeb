@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LogregComponent } from './auth/logreg/logreg.component';
 import { AuthModule } from './auth/auth.module';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MainModule } from './main/main.module';
 import { HeaderComponent } from './header/header.component';
 
@@ -19,7 +19,8 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     AuthModule,
     FormsModule,
-    MainModule
+    MainModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
