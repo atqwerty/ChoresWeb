@@ -2,13 +2,18 @@
     <label>
         Email:
     </label>
-    <input class="text_like_input" formControllName="email" />
+    <input class="text_like_input" formControlName="emailReg" />
+    <div class="input_message" *ngIf="emailReg.invalid && emailReg.touched">Email is invalid</div>
     <label>
         Password:
     </label>
-    <input class="text_like_input" formControllName="password" />
+    <input class="text_like_input" formControlName="passwordReg" />
+    <div class="input_message" *ngIf="passwordReg.invalid && passwordReg.touched">Password is invalid</div>
     <label>
         Confirm Password:
     </label>
-    <input class="text_like_input" formControllName="confirmPassword" />
+    <input class="text_like_input" formControlName="confirmPassword" />
+    <div class="input_message" *ngIf="registerForm.get('passwordReg').value !== 
+        registerForm.get('confirmPassword').value || (confirmPassword.touched && 
+            registerForm.get('confirmPassword').value === null)" >Passwords do not match</div>
 </form>

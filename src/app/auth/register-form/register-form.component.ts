@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { MustMatch } from '../helpers/must-match-validator'
 
 @Component({
   selector: 'app-register-form',
@@ -13,10 +14,29 @@ export class RegisterFormComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.fb.group({
-      email: '',
-      password: '',
-      confirmPassword: ''
+      emailReg: ['', [
+        Validators.required,
+        Validators.email
+      ]],
+      passwordReg: ['', [
+        Validators.required,
+        Validators.minLength(6)
+      ]],
+      confirmPassword: ['', [
+        Validators.required
+      ]]
     })
   }
 
+  get emailReg() {
+    return this.registerForm.get("emailReg")
+  }
+
+  get passwordReg() {
+    return this.registerForm.get("passwordReg")
+  }
+
+  get confirmPassword() {
+    return this.registerForm.get("confirmPassword")
+  }
 }
