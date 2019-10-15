@@ -1,0 +1,11 @@
+<form [formGroup]="loginForm" id="login_form">
+    <label>
+        E-mail:
+    </label>
+    <input class="text_like_input" formControlName="email" />
+    <label>
+        Password:
+    </label>
+    <input class="text_like_input" type="password" formControlName="password" />
+    <input value="Log in" type="submit" class="button_like_input" />
+</form>
