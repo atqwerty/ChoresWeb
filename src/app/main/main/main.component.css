@@ -77,3 +77,15 @@ table tr:last-child td:last-child {
     padding-top: 40px;
     box-sizing: border-box;
 }
+.alert {
+    float: right;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #EB1360;
+    border: 1px solid white;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
