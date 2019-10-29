@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from 'src/app/classes/user/user'
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -21,7 +21,12 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    return this.http.post<User>('http://localhost:8080/login', { email, password }).subscribe(
+    const httpOptions = {
+      headers: new HttpHeaders({ 
+        'Access-Control-Allow-Origin':'*'
+      })
+    };
+    return this.http.post<User>('http://localhost:8080/login', { email, password }, httpOptions).subscribe(
       data =>{
         console.log(data)
       },
