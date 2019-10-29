@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from 'src/app/classes/user/user'
-import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -21,12 +21,14 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, { username, password })
-      .pipe(map(user => {
-        localStorage.setItem('currentUser', JSON.stringify(user))
-        this.currentUserSubject.next(user)
-        return user
-      }))
+    return this.http.post<User>('http://localhost:8080/login', { email, password }).subscribe(
+      data =>{
+        console.log(data)
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 
   logout() {
