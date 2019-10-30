@@ -26,7 +26,7 @@ export class AuthService {
         'Access-Control-Allow-Origin':'*'
       })
     };
-    return this.http.post<User>('http://localhost:8080/login', { email, password }, httpOptions).subscribe(
+    return this.http.post<User>('http://172.17.0.1:8080/login', { email, password }, httpOptions).subscribe(
       data =>{
         console.log(data)
       },
