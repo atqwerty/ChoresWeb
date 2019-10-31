@@ -65,10 +65,5 @@ export class RegisterFormComponent implements OnInit {
 
   onSubmit = () => {
     let data = this.authService.register(this.emailReg.value, this.nameReg.value, this.surnameReg.value, this.passwordReg.value)
-    console.log(data)
-    this.user = new User(this.emailReg.value, this.passwordReg.value, this.nameReg.value, this.surnameReg.value)
-    this.userFlowService.passUserData(this.user)
-
-    this.router.navigateByUrl('/main')
   }
 }

@@ -8,7 +8,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { AuthService } from '../services/authService/auth.service';
 import { HttpClient } from 'selenium-webdriver/http';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
