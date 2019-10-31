@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './services/authGuardService/auth.guard';
 
 
-const routes: Routes = [
+const routes: Routes =
   { path: '', redirectTo: '/logreg', pathMatch: 'full' },
 ];
 
