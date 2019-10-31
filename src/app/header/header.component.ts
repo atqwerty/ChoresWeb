@@ -15,13 +15,12 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private userFlowService: UserFlowService) {
     this.userFlowService.passUserData$.subscribe((data) => {
       this.user = data
-      
+
       if (this.user) this.loggedIn = true
     })
   }
 
   ngOnInit() {
   }
-
 
 }

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from 'src/app/classes/user/user';
 import { UserFlowService } from 'src/app/services/userFlowService/user-flow.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/authService/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -13,9 +14,10 @@ export class LoginFormComponent implements OnInit {
   private loginForm: FormGroup
   public user: User
 
-  constructor(private fb: FormBuilder, private userFlowService: UserFlowService, private router: Router) { }
+  constructor(private fb: FormBuilder, private userFlowService: UserFlowService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
+    console.log('welcome to logreg')
     this.loginForm = this.fb.group({
       email: ['', [
         Validators.required,
@@ -37,10 +39,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit = () => {
-    this.user = new User(this.email.value, this.password.value)
-    this.userFlowService.passUserData(this.user)
-
-    this.router.navigateByUrl('/main')
+    this.authService.login(this.email.value, this.password.value)
   }
 
 }
