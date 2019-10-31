@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 export class AuthService {
   private currentUserSubject: BehaviorSubject<User>
   public currentUser: Observable<User>
-  public isAuthenticated: boolean = false
 
   constructor(
     private http: HttpClient,
@@ -39,7 +38,6 @@ export class AuthService {
         localStorage.setItem('currentUser', JSON.stringify(user))
         this.currentUserSubject.next(user)
         this.userFlowService.passUserData(user)
-        this.isAuthenticated = true;
         this.router.navigateByUrl('main')
       },
       error => {
@@ -54,11 +52,13 @@ export class AuthService {
         'Access-Control-Allow_Origin': '*'
       })
     };
-    return this.http.post<User>('http://172.17.0.1:8080/register', { email, name, surname, password }, httpOptions).subscribe(
+    return this.http.post<any>('http://172.17.0.1:8080/register', { email, name, surname, password }, httpOptions).subscribe(
       data => {
-        localStorage.setItem('currentUser', JSON.stringify(data))
-        this.currentUserSubject.next(data)
-        console.log(data)
+        let user = new User(data.email, data.password, data.name, data.surname)
+        localStorage.setItem('currentUser', JSON.stringify(user))
+        this.currentUserSubject.next(user)
+        this.userFlowService.passUserData(user)
+        this.router.navigateByUrl('main')
       },
       error => {
         console.log(error)
