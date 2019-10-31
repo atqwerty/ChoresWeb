@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { User } from 'src/app/classes/user/user';
 import { UserFlowService } from 'src/app/services/userFlowService/user-flow.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/authService/auth.service';
 
 @Component({
   selector: 'app-register-form',
@@ -13,13 +14,24 @@ export class RegisterFormComponent implements OnInit {
   private registerForm: FormGroup
   public user: User
 
-  constructor(private fb: FormBuilder, private userFlowService: UserFlowService, private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private userFlowService: UserFlowService,
+    private router: Router,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
     this.registerForm = this.fb.group({
       emailReg: ['', [
         Validators.required,
         Validators.email
+      ]],
+      nameReg: ['', [
+        Validators.required
+      ]],
+      surnameReg: ['', [
+        Validators.required
       ]],
       passwordReg: ['', [
         Validators.required,
@@ -35,6 +47,14 @@ export class RegisterFormComponent implements OnInit {
     return this.registerForm.get("emailReg")
   }
 
+  get nameReg() {
+    return this.registerForm.get("nameReg")
+  }
+
+  get surnameReg() {
+    return this.registerForm.get("surnameReg")
+  }
+
   get passwordReg() {
     return this.registerForm.get("passwordReg")
   }
@@ -44,7 +64,9 @@ export class RegisterFormComponent implements OnInit {
   }
 
   onSubmit = () => {
-    this.user = new User(this.emailReg.value, this.passwordReg.value)
+    let data = this.authService.register(this.emailReg.value, this.nameReg.value, this.surnameReg.value, this.passwordReg.value)
+    console.log(data)
+    this.user = new User(this.emailReg.value, this.passwordReg.value, this.nameReg.value, this.surnameReg.value)
     this.userFlowService.passUserData(this.user)
 
     this.router.navigateByUrl('/main')

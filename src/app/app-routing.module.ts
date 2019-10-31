@@ -4,8 +4,7 @@ import { AuthGuard } from './services/authGuardService/auth.guard';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/logreg', pathMatch: 'prefix' },
-  { path: 'main', redirectTo: '/main', pathMatch: 'full' }
+  { path: '', redirectTo: '/logreg', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -8,12 +8,12 @@
         Name:
     </label>
     <input class="text_like_input" formControlName="nameReg" />
-    <div class="input_message" *ngIf="nameReg.touched">Email is invalid</div>
+    <div class="input_message" *ngIf="nameReg.invalid && nameReg.touched">Name is required</div>
     <label>
         Surname:
     </label>
     <input class="text_like_input" formControlName="surnameReg" />
-    <div class="input_message" *ngIf="surnameReg.touched">Email is invalid</div>
+    <div class="input_message" *ngIf="surnameReg.invalid && nameReg.touched">Surname is required</div>
     <label>
         Password:
     </label>

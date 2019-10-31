@@ -17,6 +17,7 @@ export class LoginFormComponent implements OnInit {
   constructor(private fb: FormBuilder, private userFlowService: UserFlowService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
+    console.log('welcome to logreg')
     this.loginForm = this.fb.group({
       email: ['', [
         Validators.required,
@@ -38,13 +39,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit = () => {
-    // this.user = new User(this.email.value, this.password.value)
-
-    let data = this.authService.login(this.email.value, this.password.value)
-    console.log(data)
-    this.userFlowService.passUserData(this.user)
-
-    this.router.navigateByUrl('/main')
+    this.authService.login(this.email.value, this.password.value)
   }
 
 }

@@ -3,9 +3,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Rout
 import { Observable } from 'rxjs';
 import { AuthService } from '../authService/auth.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthGuard implements CanActivate {
   constructor(
     private router: Router,
@@ -14,13 +12,15 @@ export class AuthGuard implements CanActivate {
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     const currentUser = this.authenticationService.currentUserValue
     if(currentUser) {
+      console.log('aaaaaaaaa')
       return true
     }
 
-    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } })
+    console.log('asdf')
+    this.router.navigate(['/logreg'], { queryParams: { returnUrl: state.url } })
     return false
   }
   
