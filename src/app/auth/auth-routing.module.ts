@@ -2,11 +2,18 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AuthComponent } from './auth.component';
+import { CommonModule } from '@angular/common';
 
-const routes: Routes = [{ path: '', component: AuthComponent }];
+const routes: Routes = [
+  { path: 'logreg', component: AuthComponent, pathMatch: 'full' },
+  { path: '', component: AuthComponent, pathMatch: 'full' }
+];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes)
+  ],
   exports: [RouterModule]
 })
 export class AuthRoutingModule { }
