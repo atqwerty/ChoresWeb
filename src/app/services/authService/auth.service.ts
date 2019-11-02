@@ -66,6 +66,10 @@ export class AuthService {
     )
   }
 
+  getJwtToken() {
+    return localStorage.getItem("token")
+  }
+
   logout() {
     localStorage.removeItem('currentUser')
     this.currentUserSubject.next(null)
