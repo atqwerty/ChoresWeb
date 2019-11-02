@@ -2,13 +2,13 @@ export class User {
     private email: string
     private name: string
     private surname: string
-    private password: string
+    private token: string
 
-    constructor (email: string, password: string, name?: string, surname?: string) {
+    constructor (email: string, token: string, name?: string, surname?: string) {
         this.email = email;
         this.name = name;
         this.surname = surname;
-        this.password = password;
+        this.token = token;
    }
 
     public getEmail = () => {
