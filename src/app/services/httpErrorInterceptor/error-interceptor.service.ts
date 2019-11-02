@@ -18,7 +18,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError(err => {
         if(err.status == 401) {
-          this.authService.logout() // TODO
+          this.authService.logout() // TODO: wait to reload token
           location.reload(true)
         }
 
