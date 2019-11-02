@@ -22,4 +22,8 @@ export class User {
     public getSurname = () => {
         return this.surname
     }
+
+    public getToken = () => {
+        return this.token
+    }
 }
