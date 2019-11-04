@@ -15,9 +15,11 @@ export class ErrorInterceptorService implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    console.log('asdf')
     return next.handle(request).pipe(
       catchError(err => {
         if(err.status == 401) {
+          console.log("asdf")
           this.authService.logout() // TODO: wait to reload token
           location.reload(true)
         }
