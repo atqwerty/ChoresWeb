@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MainComponent } from './main/main.component';
 import { MainRoutingModule } from './main-routing/main-routing.module';
 import { AuthGuard } from '../services/authGuardService/auth.guard';
+import { BoardListComponent } from './boardList/board-list/board-list.component';
 
 
 
 @NgModule({
-  declarations: [MainComponent],
+  declarations: [MainComponent, BoardListComponent],
   imports: [
     CommonModule,
     MainRoutingModule
