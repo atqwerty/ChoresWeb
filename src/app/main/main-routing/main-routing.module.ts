@@ -7,7 +7,7 @@ import { BoardComponent } from '../board/board.component';
 
 const mainRoutes: Routes = [
   { path: 'main', component: MainComponent, canActivate: [AuthGuard], pathMatch: 'full' },
-  { path: 'main/board', component: BoardComponent, canActivate: [AuthGuard] }
+  { path: 'main/board/:id', component: BoardComponent, canActivate: [AuthGuard] }
 ]
 
 @NgModule({
