@@ -8,11 +8,12 @@ import { HttpClientModule } from '@angular/common/http'
 import { BoardService } from '../services/board/board.service';
 import { HttpClient } from 'selenium-webdriver/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { BoardComponent } from './board/board.component';
 
 
 
 @NgModule({
-  declarations: [MainComponent, BoardListComponent],
+  declarations: [MainComponent, BoardListComponent, BoardComponent],
   imports: [
     CommonModule,
     MainRoutingModule,

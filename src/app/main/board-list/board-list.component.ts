@@ -15,6 +15,7 @@ export class BoardListComponent implements OnInit {
   constructor(private boardService: BoardService, private dataFlowService: DataFlowService) {
     this.dataFlowService.passBoardsData$.subscribe((data) => {
       this.boards = data
+      console.log(this.boards)
     })
   }
 

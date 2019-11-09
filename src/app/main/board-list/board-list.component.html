@@ -1,7 +1,7 @@
 <table class="content_table">
         <tr class="board_row" *ngFor="let board of this.boards">
             <div class="board_item">
-                <h2 class="tr_name">{{board.title}}</h2>
+                <h2 class="tr_name"><a [routerLink]="['board', board.ID]">{{board.title}}</a></h2>
                 <div class="alert">
                     <p class="alert_number">3</p>
                 </div>
