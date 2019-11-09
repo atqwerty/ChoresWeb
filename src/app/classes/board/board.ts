@@ -1,6 +1,7 @@
 import { User } from '../user/user'
 
 export class Board {
+    private id: string
     private title: string
     private description: string
     private user: User
