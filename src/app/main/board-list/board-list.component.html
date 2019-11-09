@@ -1,5 +1,5 @@
-<table class="content_table" *ngFor="let board of boards">
-        <tr class="board_row">
+<table class="content_table">
+        <tr class="board_row" *ngFor="let board of this.boards">
             <div class="board_item">
                 <h2 class="tr_name">{{board.title}}</h2>
                 <div class="alert">
