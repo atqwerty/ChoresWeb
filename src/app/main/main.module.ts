@@ -9,12 +9,14 @@ import { BoardService } from '../services/board/board.service';
 import { HttpClient } from 'selenium-webdriver/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BoardComponent } from './board/board.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
 @NgModule({
   declarations: [MainComponent, BoardListComponent, BoardComponent],
   imports: [
+    BrowserAnimationsModule,
     CommonModule,
     MainRoutingModule,
     BrowserModule,
