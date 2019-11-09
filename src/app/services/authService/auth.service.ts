@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from 'src/app/classes/user/user'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { UserFlowService } from '../userFlowService/user-flow.service';
+import { DataFlowService } from '../dataFlowService/data-flow.service';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -15,7 +15,7 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private userFlowService: UserFlowService,
+    private dataFlowService: DataFlowService,
     private router: Router
   ) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')))
@@ -37,7 +37,7 @@ export class AuthService {
         let user = new User(data.id, data.email, '', data.name, data.surname)
         localStorage.setItem('currentUser', JSON.stringify(user))
         this.currentUserSubject.next(user)
-        this.userFlowService.passUserData(user)
+        this.dataFlowService.passUserData(user)
         this.router.navigateByUrl('main')
       },
       error => {
@@ -57,7 +57,7 @@ export class AuthService {
         let user = new User(data.id, data.email, data.password, data.name, data.surname)
         localStorage.setItem('currentUser', JSON.stringify(user))
         this.currentUserSubject.next(user)
-        this.userFlowService.passUserData(user)
+        this.dataFlowService.passUserData(user)
         this.router.navigateByUrl('main')
       },
       error => {

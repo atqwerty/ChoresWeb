@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UserFlowService } from './user-flow.service';
+import { DataFlowService } from './data-flow.service';
 
 describe('UserFlowService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: UserFlowService = TestBed.get(UserFlowService);
+    const service: DataFlowService = TestBed.get(DataFlowService);
     expect(service).toBeTruthy();
   });
 });

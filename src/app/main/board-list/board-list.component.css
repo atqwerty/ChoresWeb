@@ -52,9 +52,9 @@
     height: 100%;
     margin-top: calc(50% - 12px);
 }
-tr:not(:last-child) {
+/* tr:not(:last-child) {
     border-bottom: 1px solid black;
-}
+} */
 .board_item {
     min-height: 100px;
 }
