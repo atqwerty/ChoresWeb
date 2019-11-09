@@ -20,6 +20,6 @@ export class BoardService {
   ) { }
 
   getBoards() {
-    console.log(localStorage.getItem('currentUser'))
+    // console.log(localStorage.getItem('currentUser'))
   }
 }

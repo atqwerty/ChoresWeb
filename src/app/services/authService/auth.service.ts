@@ -34,7 +34,7 @@ export class AuthService {
     };
     this.http.post<any>('http://172.17.0.1:8080/login', { email, password }, httpOptions).subscribe(
       data => {
-        let user = new User(data.email, '', data.name, data.surname)
+        let user = new User(data.id, data.email, '', data.name, data.surname)
         localStorage.setItem('currentUser', JSON.stringify(user))
         this.currentUserSubject.next(user)
         this.userFlowService.passUserData(user)
@@ -54,7 +54,7 @@ export class AuthService {
     };
     return this.http.post<any>('http://172.17.0.1:8080/register', { email, name, surname, password }, httpOptions).subscribe(
       data => {
-        let user = new User(data.email, data.password, data.name, data.surname)
+        let user = new User(data.id, data.email, data.password, data.name, data.surname)
         localStorage.setItem('currentUser', JSON.stringify(user))
         this.currentUserSubject.next(user)
         this.userFlowService.passUserData(user)
