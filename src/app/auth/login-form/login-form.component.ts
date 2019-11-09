@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { User } from 'src/app/classes/user/user';
-import { UserFlowService } from 'src/app/services/userFlowService/user-flow.service';
+import { DataFlowService } from 'src/app/services/dataFlowService/data-flow.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/authService/auth.service';
 
@@ -14,7 +14,7 @@ export class LoginFormComponent implements OnInit {
   private loginForm: FormGroup
   public user: User
 
-  constructor(private fb: FormBuilder, private userFlowService: UserFlowService, private router: Router, private authService: AuthService) { }
+  constructor(private fb: FormBuilder, private dataFlowService: DataFlowService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
     console.log('welcome to logreg')

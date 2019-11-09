@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HeaderComponent } from './header/header.component';
 import { AuthModule } from './auth/auth.module';
 import { MainModule } from './main/main.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,10 @@ import { MainModule } from './main/main.module';
     FormsModule,
     ReactiveFormsModule,
     AuthModule,
-    MainModule
+    MainModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
