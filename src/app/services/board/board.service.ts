@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClient } from '@angular/common/http';
 import { UserFlowService } from '../userFlowService/user-flow.service';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Board } from 'src/app/classes/board/board';
+import { MainModule } from 'src/app/main/main.module';
 
 @Injectable({
   providedIn: 'root'
@@ -17,4 +18,8 @@ export class BoardService {
     private userFlowService: UserFlowService,
     private router: Router
   ) { }
+
+  getBoards() {
+    console.log(localStorage.getItem('currentUser'))
+  }
 }
