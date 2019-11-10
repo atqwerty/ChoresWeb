@@ -58,3 +58,6 @@ tr:not(:last-child) {
 .board_item {
     min-height: 100px;
 }
+a{
+    text-decoration: none;
+}
