@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { User } from 'src/app/classes/user/user';
-import { UserFlowService } from 'src/app/services/userFlowService/user-flow.service';
+import { DataFlowService } from 'src/app/services/dataFlowService/data-flow.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/authService/auth.service';
 
@@ -16,7 +16,7 @@ export class RegisterFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private userFlowService: UserFlowService,
+    private dataFlowService: DataFlowService,
     private router: Router,
     private authService: AuthService
   ) { }
@@ -65,10 +65,5 @@ export class RegisterFormComponent implements OnInit {
 
   onSubmit = () => {
     let data = this.authService.register(this.emailReg.value, this.nameReg.value, this.surnameReg.value, this.passwordReg.value)
-    console.log(data)
-    this.user = new User(this.emailReg.value, this.passwordReg.value, this.nameReg.value, this.surnameReg.value)
-    this.userFlowService.passUserData(this.user)
-
-    this.router.navigateByUrl('/main')
   }
 }

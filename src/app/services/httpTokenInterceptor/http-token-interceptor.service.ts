@@ -16,10 +16,10 @@ export class HttpTokenInterceptorService implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const currentUser = this.authService.currentUserValue;
-    if (currentUser && currentUser.getToken()) {
+    if (currentUser && currentUser.getToken) {
         request = request.clone({
             setHeaders: { 
-                Authorization: `Basic ${currentUser.getToken()}`
+                Authorization: `Basic ${currentUser.getToken().toString()}`
             }
         });
     }

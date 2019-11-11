@@ -11,6 +11,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpTokenInterceptorService } from './services/httpTokenInterceptor/http-token-interceptor.service';
 import { ErrorInterceptorService } from './services/httpErrorInterceptor/error-interceptor.service';
 import { CookieService } from 'ngx-cookie-service';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -18,17 +20,20 @@ import { CookieService } from 'ngx-cookie-service';
     HeaderComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     AuthModule,
-    MainModule
+    MainModule,
+    HttpClientModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpTokenInterceptorService, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
-    CookieService
+    CookieService,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

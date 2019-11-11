@@ -3,15 +3,25 @@ import { CommonModule } from '@angular/common';
 import { MainComponent } from './main/main.component';
 import { MainRoutingModule } from './main-routing/main-routing.module';
 import { AuthGuard } from '../services/authGuardService/auth.guard';
+import { BoardListComponent } from './board-list/board-list.component';
+import { HttpClientModule } from '@angular/common/http'
+import { BoardService } from '../services/board/board.service';
+import { HttpClient } from 'selenium-webdriver/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BoardComponent } from './board/board.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
 @NgModule({
-  declarations: [MainComponent],
+  declarations: [MainComponent, BoardListComponent, BoardComponent],
   imports: [
+    BrowserAnimationsModule,
     CommonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [AuthGuard]
+  providers: [AuthGuard, HttpClientModule]
 })
 export class MainModule { }

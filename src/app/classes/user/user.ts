@@ -1,14 +1,20 @@
 export class User {
+    private id: string
     private email: string
     private name: string
     private surname: string
     private token: string
 
-    constructor (email: string, token: string, name?: string, surname?: string) {
+    constructor (id: string, email: string, token: string, name?: string, surname?: string) {
+        this.id = id;
         this.email = email;
         this.name = name;
         this.surname = surname;
         this.token = token;
+   }
+
+   public getId = () => {
+       return this.id
    }
 
     public getEmail = () => {
@@ -24,6 +30,10 @@ export class User {
     }
 
     public getToken = () => {
+        return this.token
+    }
+
+    get _token() {
         return this.token
     }
 }
