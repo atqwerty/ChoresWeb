@@ -35,12 +35,14 @@ export class AuthService {
     };
     this.http.post<any>('http://172.17.0.1:8080/login', { email, password }, httpOptions).subscribe(
       data => {
-        let user = new User(data.id, data.email, data.token, data.name, data.surname)
+        // console.log(data)
+        let user = new User(data.id, data.email, data.token, data.refresh_token, data.name, data.surname)
         localStorage.setItem('currentUser', JSON.stringify(user))
         this.currentUserSubject.next(user)
         this.dataFlowService.passUserData(user)
         this.router.navigateByUrl('main')
-        console.log(data)
+        // console.log()
+        // console.log(data)
       },
       error => {
         console.log(error)
