@@ -3,14 +3,16 @@ export class User {
     private email: string
     private name: string
     private surname: string
-    private password: string
+    private refreshToken: string
+    private token: string
 
-    constructor (id: string, email: string, password: string, name?: string, surname?: string) {
+    constructor (id: string, email: string, token: string, refreshToken: string, name?: string, surname?: string) {
         this.id = id;
         this.email = email;
         this.name = name;
         this.surname = surname;
-        this.password = password;
+        this.token = token;
+        this.refreshToken = refreshToken;
    }
 
    public getId = () => {
@@ -27,5 +29,15 @@ export class User {
 
     public getSurname = () => {
         return this.surname
+    }
+
+    public getToken = () => {
+        return this.token
+    }
+
+    public ge
+
+    get _token() {
+        return this.token
     }
 }
