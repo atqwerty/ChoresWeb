@@ -16,15 +16,6 @@ input {
     padding-left: 10px;
     padding-right: 10px;
     font-size: 20px;
-    transition: 0.5s;
-}
-input:focus {
-    box-shadow: 5px 5px #000000;
-    -webkit-transform: translateX(-5px);
-    transform: translateX(-5px);
-    -webkit-transform: translateY(-5px);
-    transform: translateY(-5px);
-    transition: 0.5s;
 }
 .text_like_input {
     background-color: #FFDBE9;

@@ -9,10 +9,11 @@ import { AuthService } from '../services/authService/auth.service';
 import { HttpClient } from 'selenium-webdriver/http';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FocusDirective } from './focus/focus.directive';
 
 
 @NgModule({
-  declarations: [AuthComponent, LoginFormComponent, RegisterFormComponent],
+  declarations: [AuthComponent, LoginFormComponent, RegisterFormComponent, FocusDirective],
   imports: [
     CommonModule,
     AuthRoutingModule,

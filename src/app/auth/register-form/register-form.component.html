@@ -2,29 +2,29 @@
     <label>
         Email:
     </label>
-    <input class="text_like_input" formControlName="emailReg" />
+    <input appFocus class="text_like_input" formControlName="emailReg" />
     <div class="input_message" *ngIf="emailReg.invalid && emailReg.touched">Email is invalid</div>
     <label>
         Name:
     </label>
-    <input class="text_like_input" formControlName="nameReg" />
+    <input appFocus class="text_like_input" formControlName="nameReg" />
     <div class="input_message" *ngIf="nameReg.invalid && nameReg.touched">Name is required</div>
     <label>
         Surname:
     </label>
-    <input class="text_like_input" formControlName="surnameReg" />
+    <input appFocus class="text_like_input" formControlName="surnameReg" />
     <div class="input_message" *ngIf="surnameReg.invalid && nameReg.touched">Surname is required</div>
     <label>
         Password:
     </label>
-    <input type="password" class="text_like_input" formControlName="passwordReg" />
+    <input appFocus type="password" class="text_like_input" formControlName="passwordReg" />
     <div class="input_message" *ngIf="passwordReg.invalid && passwordReg.touched">Password is invalid</div>
     <label>
         Confirm Password:
     </label>
-    <input type="password" class="text_like_input" formControlName="confirmPassword" />
+    <input appFocus type="password" class="text_like_input" formControlName="confirmPassword" />
     <div class="input_message" *ngIf="registerForm.get('passwordReg').value !== 
         registerForm.get('confirmPassword').value || (confirmPassword.touched && 
             registerForm.get('confirmPassword').value === null)" >Passwords do not match</div>
-    <input [disabled]="!registerForm.valid" value="Register" type="submit" class="button_like_input" />
+    <input appFocus [disabled]="!registerForm.valid" value="Register" type="submit" class="button_like_input" />
 </form>

@@ -2,12 +2,12 @@
     <label>
         E-mail:
     </label>
-    <input class="text_like_input" formControlName="email" />
+    <input appFocus class="text_like_input" formControlName="email" />
     <div class="input_message" *ngIf="email.invalid && email.touched">Email is invalid</div>
     <label>
         Password:
     </label>
-    <input class="text_like_input" type="password" formControlName="password" />
+    <input appFocus class="text_like_input" type="password" formControlName="password" />
     <div class="input_message" *ngIf="password.invalid && password.touched">Password is invalid</div>
-    <input [disabled]="!loginForm.valid" value="Log in" type="submit" class="button_like_input" />
+    <input appFocus [disabled]="!loginForm.valid" value="Log in" type="submit" class="button_like_input" />
 </form>
