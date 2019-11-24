@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { slideInAnimation } from 'src/app/shared/route-animation';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
+import { BoardService } from 'src/app/services/board/board.service';
+import { DataFlowService } from 'src/app/services/dataFlowService/data-flow.service';
 
 @Component({
   selector: 'app-board',
@@ -8,10 +12,34 @@ import { slideInAnimation } from 'src/app/shared/route-animation';
   animations: [slideInAnimation]
 })
 export class BoardComponent implements OnInit {
+  todo = []
+  done = []
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private boardService: BoardService,
+    private dataFlowService: DataFlowService
+  ) { 
+    this.dataFlowService.passBoardData$.subscribe((data) => {
+      this.todo = data
+    })
+  }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.boardService.getBoard(params.id)
+    })
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    }
   }
 
 }

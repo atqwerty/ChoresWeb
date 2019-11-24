@@ -10,6 +10,7 @@ import { HttpClient } from 'selenium-webdriver/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BoardComponent } from './board/board.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     MainRoutingModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    DragDropModule
   ],
   providers: [AuthGuard, HttpClientModule]
 })

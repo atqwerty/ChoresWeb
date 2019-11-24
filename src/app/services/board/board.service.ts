@@ -27,6 +27,7 @@ export class BoardService {
   getBoards() {
     this.http.get<any>('http://172.17.0.1:8080/board/all').subscribe(
       data => {
+        console.log(data)
         this.dataFlowService.passBoardsData(data)
       },
       error => {
@@ -34,5 +35,15 @@ export class BoardService {
       }
     )
     return null
+  }
+
+  getBoard(id) {
+    this.http.get<any>('http://172.17.0.1:8080/board/' + id).subscribe(
+      data => {
+        console.log(data)
+        this.dataFlowService.passBoardData(data)
+      },
+      error => console.log(error)
+    )
   }
 }
