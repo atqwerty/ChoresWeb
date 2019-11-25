@@ -46,4 +46,15 @@ export class BoardService {
       error => console.log(error)
     )
   }
+
+  getStatuses(id) {
+    this.http.get<any>('http://172.17.0.1:8080/board/' + id + '/getStatuses').subscribe(
+      data => {
+        console.log(data)
+        this.dataFlowService.passStatusesData(data)
+      },
+      error => console.log(error)
+    )
+
+  }
 }
