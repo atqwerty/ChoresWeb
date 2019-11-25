@@ -14,6 +14,7 @@ import { DataFlowService } from 'src/app/services/dataFlowService/data-flow.serv
 export class BoardComponent implements OnInit {
   todo = []
   done = []
+  statuses = []
 
   constructor(
     private route: ActivatedRoute,
@@ -21,13 +22,19 @@ export class BoardComponent implements OnInit {
     private dataFlowService: DataFlowService
   ) { 
     this.dataFlowService.passBoardData$.subscribe((data) => {
+      console.log(data)
       this.todo = data
+    })
+    this.dataFlowService.passStatusesData$.subscribe((data) => {
+      console.log(data)
+      this.statuses = data
     })
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.boardService.getBoard(params.id)
+      this.boardService.getStatuses(params.id)
     })
   }
 
