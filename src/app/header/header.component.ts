@@ -9,7 +9,7 @@ import { Router } from '@angular/router'
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  private user
+  private user 
   private loggedIn: boolean = false
   
   constructor(private router: Router, private dataFlowService: DataFlowService) {
