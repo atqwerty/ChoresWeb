@@ -4,6 +4,14 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
 import { BoardService } from 'src/app/services/board/board.service';
 import { DataFlowService } from 'src/app/services/dataFlowService/data-flow.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
+
+export interface DialogData {
+  title: string;
+  description: string;
+  assignedUser: string;
+}
 
 @Component({
   selector: 'app-board',
@@ -15,11 +23,14 @@ export class BoardComponent implements OnInit {
   tasks = []
   tasksSorted = []
   statuses = []
+  title: string
+  description: string
 
   constructor(
     private route: ActivatedRoute,
     private boardService: BoardService,
-    private dataFlowService: DataFlowService
+    private dataFlowService: DataFlowService,
+    public dialog: MatDialog
   ) { 
     this.dataFlowService.passBoardData$.subscribe((data) => {
       this.tasks = data
@@ -51,6 +62,19 @@ export class BoardComponent implements OnInit {
                         event.previousIndex,
                         event.currentIndex);
     }
+  }
+
+  openCreateTaskDialog(): void {
+    const dialogRef = this.dialog.open(TaskDialogComponent, {
+      width: '250px',
+      data: {title: this.title, description: this.description}
+    });
+
+    console.log(dialogRef)
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
   }
 
 }

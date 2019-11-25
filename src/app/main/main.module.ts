@@ -11,19 +11,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BoardComponent } from './board/board.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 
 
 
 @NgModule({
-  declarations: [MainComponent, BoardListComponent, BoardComponent],
+  declarations: [MainComponent, BoardListComponent, BoardComponent, TaskDialogComponent],
   imports: [
     BrowserAnimationsModule,
     CommonModule,
     MainRoutingModule,
     BrowserModule,
     HttpClientModule,
-    DragDropModule
+    DragDropModule,
+    MatDialogModule
   ],
-  providers: [AuthGuard, HttpClientModule]
+  providers: [AuthGuard, HttpClientModule],
+  entryComponents: [TaskDialogComponent]
 })
 export class MainModule { }
