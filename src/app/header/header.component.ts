@@ -9,15 +9,14 @@ import { Router } from '@angular/router'
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  private user: User
+  private user
   private loggedIn: boolean = false
   
   constructor(private router: Router, private dataFlowService: DataFlowService) {
-    this.dataFlowService.passUserData$.subscribe((data) => {
-      this.user = data
-
-      if (this.user) this.loggedIn = true
-    })
+      if (localStorage.getItem('currentUser')){
+          this.user = JSON.parse(localStorage.getItem('currentUser'))
+          this.loggedIn = true
+      }
   }
 
   ngOnInit() {
