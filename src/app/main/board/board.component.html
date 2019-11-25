@@ -1,19 +1,24 @@
 <div id="main_body">
     <div id="content">
         <div cdkDropListGroup>
-          <div class="example-container">
-            <h2>To do</h2>
+          <div class="example-container" *ngFor="let status of statuses">
+            <h2>{{status.status}}</h2>
         
             <div
               cdkDropList
-              [cdkDropListData]="todo"
+              [cdkDropListData]="status.status"
               class="example-list"
               (cdkDropListDropped)="drop($event)">
-              <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item.title}}</div>
+                <div *ngFor="let task of tasks">
+                  <div class="example-box" *ngIf="task.status === status.status"
+              cdkDrag>
+                    {{task.title}}
+                  </div>
+                </div>
             </div>
           </div>
       
-          <div class="example-container">
+          <!--<div class="example-container">
             <h2>Done</h2>
         
             <div
@@ -24,6 +29,6 @@
               <div class="example-box" *ngFor="let item of done" cdkDrag>{{item.title}}</div>
             </div>
           </div>
-        </div>
+        </div>-->
     </div>
 </div>

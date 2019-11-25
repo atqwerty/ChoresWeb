@@ -12,8 +12,8 @@ import { DataFlowService } from 'src/app/services/dataFlowService/data-flow.serv
   animations: [slideInAnimation]
 })
 export class BoardComponent implements OnInit {
-  todo = []
-  done = []
+  tasks = []
+  tasksSorted = []
   statuses = []
 
   constructor(
@@ -22,12 +22,10 @@ export class BoardComponent implements OnInit {
     private dataFlowService: DataFlowService
   ) { 
     this.dataFlowService.passBoardData$.subscribe((data) => {
-      console.log(data)
-      this.todo = data
-    })
-    this.dataFlowService.passStatusesData$.subscribe((data) => {
-      console.log(data)
-      this.statuses = data
+      this.tasks = data
+      this.dataFlowService.passStatusesData$.subscribe((data) => {
+        this.statuses = data
+      })
     })
   }
 
@@ -40,8 +38,14 @@ export class BoardComponent implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
+      console.log(event)
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
+      let droppedTask = this.tasks.find(obj => {
+        return obj.title === event.item.element.nativeElement.innerText
+      })
+      droppedTask.status = event.container.data
+      console.table(this.tasks)
       transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
