@@ -6,8 +6,7 @@ import { BoardService } from 'src/app/services/board/board.service';
 import { DataFlowService } from 'src/app/services/dataFlowService/data-flow.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
-
-
+import { StatusDialogComponent } from '../status-dialog/status-dialog.component'
 
 @Component({
   selector: 'app-board',
@@ -21,7 +20,9 @@ export class BoardComponent implements OnInit {
   statuses = []
   title: string
   description: string
-  canCreate: boolean = false
+  canCreateTask: boolean = false
+  canCreateStatus: boolean = false
+  newStatus: string
 
   constructor(
     private route: ActivatedRoute,
@@ -76,4 +77,19 @@ export class BoardComponent implements OnInit {
     });
   }
 
+  openCreateStatusDialog(): void {
+    const dialogRef = this.dialog.open(StatusDialogComponent, {
+      height: 'fit-content',
+      width: '400px',
+      data: {status: this.status}
+    })
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (status) {
+        this.canCreateStatus = true
+        this.newStatus = result.status
+        console.log(this.newStatus)
+      }
+    })
+  }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogData } from '../board/board.component';
+import { TaskDialogData } from '../board/board.component';
 
 @Component({
   selector: 'app-task-dialog',
@@ -11,7 +11,7 @@ export class TaskDialogComponent implements OnInit {
  
   constructor(
     public dialogRef: MatDialogRef<TaskDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    @Inject(MAT_DIALOG_DATA) public data: TaskDialogData
   ) { }
 
   ngOnInit() {
