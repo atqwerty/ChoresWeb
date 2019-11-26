@@ -15,11 +15,10 @@ export class TaskDialogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('here')
   }
 
   onNoClick(): void {
-    this.dialodRef.close()
+    this.dialogRef.close()
   }
 
 }

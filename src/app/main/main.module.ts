@@ -12,7 +12,9 @@ import { BoardComponent } from './board/board.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule, MatInputModule } from '@angular/material'
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +27,10 @@ import { TaskDialogComponent } from './task-dialog/task-dialog.component';
     BrowserModule,
     HttpClientModule,
     DragDropModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [AuthGuard, HttpClientModule],
   entryComponents: [TaskDialogComponent]

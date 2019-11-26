@@ -70,10 +70,9 @@ export class BoardComponent implements OnInit {
       data: {title: this.title, description: this.description}
     });
 
-    console.log(dialogRef)
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.animal = result;
+      //this.animal = result;
     });
   }
 
