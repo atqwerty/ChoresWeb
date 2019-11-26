@@ -81,13 +81,13 @@ export class BoardComponent implements OnInit {
     const dialogRef = this.dialog.open(StatusDialogComponent, {
       height: 'fit-content',
       width: '400px',
-      data: {status: this.status}
+      data: {newStatus: this.newStatus}
     })
 
     dialogRef.afterClosed().subscribe(result => {
-      if (status) {
-        this.canCreateStatus = true
-        this.newStatus = result.status
+      if (result.newStatus) {
+        this.canCreateStatus = true // TODO: check if there are duplicates
+        this.newStatus = result.newStatus
         console.log(this.newStatus)
       }
     })
