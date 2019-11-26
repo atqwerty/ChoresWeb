@@ -1,11 +1,14 @@
-<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<h1 mat-dialog-title>Create Task:</h1>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field>
-    <input matInput [(ngModel)]="data.task">
+  <mat-form-field class="text-area">
+    <input placeholder="Name" matInput [(ngModel)]="data.task">
+  </mat-form-field>
+  <mat-form-field class="text-area">
+    <textarea  placeholder="Description" matInput [(ngModel)]="data.description"
+    class="text-area"></textarea>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+  <button class="dialog-button" mat-button (click)="onNoClick()">Close</button>
+  <button class="dialog-button" mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
 </div>

@@ -66,7 +66,8 @@ export class BoardComponent implements OnInit {
 
   openCreateTaskDialog(): void {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
-      width: '250px',
+      height: 'fit-content',
+      width: '400px',
       data: {title: this.title, description: this.description}
     });
 
