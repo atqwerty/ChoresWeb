@@ -7,6 +7,17 @@ import { DataFlowService } from 'src/app/services/dataFlowService/data-flow.serv
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 import { StatusDialogComponent } from '../status-dialog/status-dialog.component'
+import { HttpClient } from 'selenium-webdriver/http';
+import { TaskService } from '../../services/taskService/task.service'
+
+export interface StatusDialogData {
+  newStatus: string
+}
+
+export interface TaskDialogData {
+  title: string,
+  description: string
+}
 
 @Component({
   selector: 'app-board',
@@ -18,6 +29,7 @@ export class BoardComponent implements OnInit {
   tasks = []
   tasksSorted = []
   statuses = []
+  boardId: int
   title: string
   description: string
   canCreateTask: boolean = false
@@ -25,6 +37,7 @@ export class BoardComponent implements OnInit {
   newStatus: string
 
   constructor(
+    private taskService: TaskService,
     private route: ActivatedRoute,
     private boardService: BoardService,
     private dataFlowService: DataFlowService,
@@ -35,11 +48,13 @@ export class BoardComponent implements OnInit {
       this.dataFlowService.passStatusesData$.subscribe((data) => {
         this.statuses = data
       })
+      console.log(this.tasks)
     })
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
+      this.boardId = params.id
       this.boardService.getBoard(params.id)
       this.boardService.getStatuses(params.id)
     })
@@ -61,7 +76,7 @@ export class BoardComponent implements OnInit {
     }
   }
 
-  openCreateTaskDialog(): void {
+  openCreateTaskDialog(status): void {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
       height: 'fit-content',
       width: '400px',
@@ -70,9 +85,10 @@ export class BoardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result.title || result.description) {
-        this.canCreate = true // TODO: check if there are duplicates
+        this.canCreateTask = true // TODO: check if there are duplicates
         this.title = result.title;
         this.description = result.description;
+        this.createTask(status)
       }
     });
   }
@@ -91,5 +107,18 @@ export class BoardComponent implements OnInit {
         console.log(this.newStatus)
       }
     })
+  }
+
+  createTask(status) {
+    this.taskService.addTask(this.title, this.description, status.id, this.boardId)
+        .subscribe(
+          data => {
+            this.tasks.push(data)
+            console.log(this.tasks)
+          },
+          error => {
+            console.log(error)
+          }
+        )
   }
 }
