@@ -6,7 +6,7 @@
         
             <div
               cdkDropList
-              [cdkDropListData]="status.status"
+              [cdkDropListData]="status"
               class="example-list"
               (cdkDropListDropped)="drop($event)">
                 <div *ngFor="let task of tasks">

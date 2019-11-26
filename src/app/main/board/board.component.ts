@@ -68,7 +68,8 @@ export class BoardComponent implements OnInit {
       let droppedTask = this.tasks.find(obj => {
         return obj.title === event.item.element.nativeElement.innerText
       })
-      droppedTask.status = event.container.data
+      droppedTask.status = event.container.data.status
+      this.updateStatus(event.container.data.id, droppedTask.ID)
       transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
@@ -127,6 +128,19 @@ export class BoardComponent implements OnInit {
         .subscribe(
           data => {
             this.statuses.push(data)
+          },
+          error => {
+            console.log(error)
+          }
+        )
+  }
+
+  updateStatus(statusID, taskID) {
+    console.log(statusID + " " + taskID)
+    this.taskService.updateStatus(statusID, taskID, this.boardId)
+        .subscribe(
+          data => {
+            console.log(data)
           },
           error => {
             console.log(error)

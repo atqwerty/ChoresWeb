@@ -21,8 +21,12 @@ export class TaskService {
         'Access-Control-Allow-Origin' : '*'
       })
     }
-    status = status.toString()
     return this.http.post<any>('http://172.17.0.1:8080/board/' + board_id + '/task/create',
                         { title, description, status })
+  }
+
+  updateStatus(status_id, task_id, boardId) {
+    return this.http.post<any>('http://172.17.0.1:8080/board/' + boardId + '/updateStatus',
+                              { status_id, task_id })
   }
 }
