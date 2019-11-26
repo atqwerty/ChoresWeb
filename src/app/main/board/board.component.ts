@@ -47,8 +47,8 @@ export class BoardComponent implements OnInit {
       this.tasks = data
       this.dataFlowService.passStatusesData$.subscribe((data) => {
         this.statuses = data
+        console.log(data)
       })
-      console.log(this.tasks)
     })
   }
 
@@ -104,7 +104,7 @@ export class BoardComponent implements OnInit {
       if (result.newStatus) {
         this.canCreateStatus = true // TODO: check if there are duplicates
         this.newStatus = result.newStatus
-        console.log(this.newStatus)
+        this.createStatus()
       }
     })
   }
@@ -115,6 +115,18 @@ export class BoardComponent implements OnInit {
           data => {
             this.tasks.push(data)
             console.log(this.tasks)
+          },
+          error => {
+            console.log(error)
+          }
+        )
+  }
+
+  createStatus() {
+    this.boardService.addStatus(this.newStatus)
+        .subscribe(
+          data => {
+            this.statuses.push(data)
           },
           error => {
             console.log(error)

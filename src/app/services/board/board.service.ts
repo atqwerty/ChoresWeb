@@ -52,6 +52,9 @@ export class BoardService {
       },
       error => console.log(error)
     )
+  }
 
+  addStatus(status) {
+    return this.http.post<any>('http://172.17.0.1:8080/board/newStatus', { status })
   }
 }
