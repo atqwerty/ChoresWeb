@@ -8,7 +8,7 @@ import { DialogData } from '../board/board.component';
   styleUrls: ['./task-dialog.component.css']
 })
 export class TaskDialogComponent implements OnInit {
-
+ 
   constructor(
     public dialogRef: MatDialogRef<TaskDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData

@@ -7,11 +7,7 @@ import { DataFlowService } from 'src/app/services/dataFlowService/data-flow.serv
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 
-export interface DialogData {
-  title: string;
-  description: string;
-  assignedUser: string;
-}
+
 
 @Component({
   selector: 'app-board',
@@ -25,6 +21,7 @@ export class BoardComponent implements OnInit {
   statuses = []
   title: string
   description: string
+  canCreate: boolean = false
 
   constructor(
     private route: ActivatedRoute,
@@ -56,7 +53,6 @@ export class BoardComponent implements OnInit {
         return obj.title === event.item.element.nativeElement.innerText
       })
       droppedTask.status = event.container.data
-      console.table(this.tasks)
       transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
@@ -72,8 +68,11 @@ export class BoardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      //this.animal = result;
+      if (result.title || result.description) {
+        this.canCreate = true // TODO: check if there are duplicates
+        this.title = result.title;
+        this.description = result.description;
+      }
     });
   }
 
