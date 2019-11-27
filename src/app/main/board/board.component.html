@@ -10,9 +10,9 @@
               class="example-list"
               (cdkDropListDropped)="drop($event)">
                 <div *ngFor="let task of tasks">
-                  <div class="example-box" *ngIf="task.status === status.status"
-              cdkDrag>
+                  <div class="example-box" *ngIf="task.status === status.status" cdkDrag>
                     {{task.title}}
+                    <input class="info-button" value="info" type="button" (click)="openTaskInfo(task)" >
                   </div>
                 </div>
                 <input class="example-box add-task-button" type="button" (click)="openCreateTaskDialog(status)" value="Add Task" />

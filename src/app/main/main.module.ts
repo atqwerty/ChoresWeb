@@ -16,11 +16,12 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material'
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { StatusDialogComponent } from './status-dialog/status-dialog.component';
+import { TaskInfoDialogComponent } from './task-info-dialog/task-info-dialog.component';
 
 
 
 @NgModule({
-  declarations: [MainComponent, BoardListComponent, BoardComponent, TaskDialogComponent, StatusDialogComponent],
+  declarations: [MainComponent, BoardListComponent, BoardComponent, TaskDialogComponent, StatusDialogComponent, TaskInfoDialogComponent],
   imports: [
     BrowserAnimationsModule,
     CommonModule,
@@ -34,6 +35,6 @@ import { StatusDialogComponent } from './status-dialog/status-dialog.component';
     MatInputModule
   ],
   providers: [AuthGuard, HttpClientModule],
-  entryComponents: [TaskDialogComponent, StatusDialogComponent]
+  entryComponents: [TaskDialogComponent, StatusDialogComponent, TaskInfoDialogComponent]
 })
 export class MainModule { }

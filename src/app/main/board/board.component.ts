@@ -9,6 +9,7 @@ import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 import { StatusDialogComponent } from '../status-dialog/status-dialog.component'
 import { HttpClient } from 'selenium-webdriver/http';
 import { TaskService } from '../../services/taskService/task.service'
+import { TaskInfoDialogComponent } from '../task-info-dialog/task-info-dialog.component';
 
 export interface StatusDialogData {
   newStatus: string
@@ -17,6 +18,11 @@ export interface StatusDialogData {
 export interface TaskDialogData {
   title: string,
   description: string
+}
+
+export interface TaskInfoDialogData {
+  title: string,
+  description: string,
 }
 
 @Component({
@@ -62,7 +68,6 @@ export class BoardComponent implements OnInit {
 
   drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
-      console.log(event)
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
       let droppedTask = this.tasks.find(obj => {
@@ -148,5 +153,13 @@ export class BoardComponent implements OnInit {
             console.log(error)
           }
         )
+  }
+
+  openTaskInfo(task): void {
+    const dialogRef = this.dialog.open(TaskInfoDialogComponent, {
+      height: 'fit-content',
+      width: '400px',
+      data: {taskTitle: task.title, taskDescription: task.description}
+    })
   }
 }

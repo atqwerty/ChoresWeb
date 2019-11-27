@@ -46,6 +46,7 @@
 }
 
 .add-task-button {
+  justify-content: center;
   background-color: #FFDBE9;
   transition: 0.5s ease all;
 }
@@ -96,4 +97,23 @@
   margin: 85px 25px 25px 0;
   display: inline-block;
   vertical-align: top;
+}
+
+.info-button {
+    outline: none;
+    border-radius: 15px;
+    border: none;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    min-height: 30px;
+    background-color: #FFDBE9;
+    font-family: monospace;
+    transition: 0.5s ease all;
+}
+
+.info-button:hover {
+  background-color: #EB1360;
+  color: white;
 }
