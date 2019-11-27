@@ -15,6 +15,7 @@ export class HttpTokenInterceptorService implements HttpInterceptor {
   constructor(public authService: AuthService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log('asdf')
     const currentUser = this.authService.currentUserValue;
     if (currentUser && currentUser.getToken) {
         request = request.clone({

@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Create Status:</h1>
+<div mat-dialog-content>
+  <mat-form-field class="text-area">
+    <input placeholder="Status Title" matInput [(ngModel)]="data.newStatus">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button class="dialog-button" mat-button (click)="onNoClick()">Close</button>
+  <button class="dialog-button" mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>
