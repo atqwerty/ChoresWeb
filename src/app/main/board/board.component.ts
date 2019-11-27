@@ -29,7 +29,7 @@ export class BoardComponent implements OnInit {
   tasks = []
   tasksSorted = []
   statuses = []
-  boardId: int
+  boardId = 0
   title: string
   description: string
   canCreateTask: boolean = false
@@ -60,7 +60,7 @@ export class BoardComponent implements OnInit {
     })
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {
       console.log(event)
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -68,8 +68,10 @@ export class BoardComponent implements OnInit {
       let droppedTask = this.tasks.find(obj => {
         return obj.title === event.item.element.nativeElement.innerText
       })
-      droppedTask.status = event.container.data.status
-      this.updateStatus(event.container.data.id, droppedTask.ID)
+      if (event.container.data) {
+        droppedTask.status = event.container.data.status
+        this.updateStatus(event.container.data.id, droppedTask.ID)
+      }
       transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
