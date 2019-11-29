@@ -25,7 +25,7 @@ export class BoardService {
   }
 
   getBoards() {
-    this.http.get<any>('http://172.17.0.1:8080/board/all').subscribe(
+    this.http.get<any>('https://chores-backend-atqwerty.herokuapp.com/board/all').subscribe(
       data => {
         this.dataFlowService.passBoardsData(data)
       },
@@ -37,7 +37,7 @@ export class BoardService {
   }
 
   getBoard(id) {
-    this.http.get<any>('http://172.17.0.1:8080/board/' + id).subscribe(
+    this.http.get<any>('https://chores-backend-atqwerty.herokuapp.com/board/' + id).subscribe(
       data => {
         this.dataFlowService.passBoardData(data)
       },
@@ -46,7 +46,7 @@ export class BoardService {
   }
 
   getStatuses(id) {
-    this.http.get<any>('http://172.17.0.1:8080/board/' + id + '/getStatuses').subscribe(
+    this.http.get<any>('https://chores-backend-atqwerty.herokuapp.com/board/' + id + '/getStatuses').subscribe(
       data => {
         this.dataFlowService.passStatusesData(data)
       },
@@ -55,6 +55,6 @@ export class BoardService {
   }
 
   addStatus(status) {
-    return this.http.post<any>('http://172.17.0.1:8080/board/newStatus', { status })
+    return this.http.post<any>('https://chores-backend-atqwerty.herokuapp.com/board/newStatus', { status })
   }
 }

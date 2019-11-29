@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../authService/auth.service';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { retry, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -25,20 +25,21 @@ export class ErrorInterceptorService implements HttpInterceptor {
               'Authorization':'Bearer ' + JSON.parse(localStorage.getItem('currentUser')).refreshToken
             })
           };
-          this.http.get('http://172.17.0.1:8080/refresh', httpOptions).subscribe(
+          this.http.get('https://chores-backend-atqwerty.herokuapp.com/refresh', httpOptions).subscribe(
             data => {
               console.log(data)
+              next.handle(data)
+              window.location.reload()
             },
             error => {
               console.log(error)
+              return throwError(error)
             }
           )
           console.log('must be it')
-          return next.handle(request)
         }
 
         const error = err.error.message || err.statusText
-        return throwError(error)
       })
     )
   }

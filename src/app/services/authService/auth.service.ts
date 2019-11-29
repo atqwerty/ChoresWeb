@@ -31,7 +31,7 @@ export class AuthService {
         'Access-Control-Allow-Origin':'*'
       })
     };
-    this.http.post<any>('http://172.17.0.1:8080/login', { email, password }, httpOptions).subscribe(
+    this.http.post<any>('https://chores-backend-atqwerty.herokuapp.com/login', { email, password }, httpOptions).subscribe(
       data => {
         // console.log(data)
         let user = new User(data.id, data.email, data.token, data.refresh_token, data.name, data.surname)
@@ -55,7 +55,7 @@ export class AuthService {
         'Access-Control-Allow_Origin': '*'
       })
     };
-    return this.http.post<any>('http://172.17.0.1:8080/register', { email, name, surname, password }, httpOptions).subscribe(
+    return this.http.post<any>('https://chores-backend-atqwerty.herokuapp.com/register', { email, name, surname, password }, httpOptions).subscribe(
       data => {
         let user = new User(data.id, data.email, data.token, data.name, data.surname)
         localStorage.setItem('currentUser', JSON.stringify(user))
