@@ -17,11 +17,12 @@ import { TaskDialogComponent } from './task-dialog/task-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { StatusDialogComponent } from './status-dialog/status-dialog.component';
 import { TaskInfoDialogComponent } from './task-info-dialog/task-info-dialog.component';
+import { GobackButtonHoverDirective } from './gobackButtonHover/goback-button-hover.directive';
 
 
 
 @NgModule({
-  declarations: [MainComponent, BoardListComponent, BoardComponent, TaskDialogComponent, StatusDialogComponent, TaskInfoDialogComponent],
+  declarations: [MainComponent, BoardListComponent, BoardComponent, TaskDialogComponent, StatusDialogComponent, TaskInfoDialogComponent, GobackButtonHoverDirective],
   imports: [
     BrowserAnimationsModule,
     CommonModule,

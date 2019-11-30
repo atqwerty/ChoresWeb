@@ -9,7 +9,7 @@
 #content {
     display: inline-flex;
     margin-top: 100px;
-    margin-left: 5%;
+    margin-left: 25px;
     width: 90%;
     height: calc(100% - 100px);
 }
@@ -116,4 +116,17 @@
 .info-button:hover {
   background-color: #EB1360;
   color: white;
+}
+
+#goback_button_container {
+  display: inline-block;
+  position: fixed;
+  right: 0;
+  height: 100%;
+  width: 10%;
+  transition: 0.5s ease all;
+}
+
+.goback_button {
+  opacity: 0;
 }
