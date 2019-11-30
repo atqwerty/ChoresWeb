@@ -3,13 +3,14 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpClient, HttpH
 import { AuthService } from '../authService/auth.service';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorInterceptorService implements HttpInterceptor {
 
-  constructor(private authService: AuthService, private http: HttpClient) { }
+  constructor(private authService: AuthService, private http: HttpClient, private router: Router) { }
 
   intercept(
     request: HttpRequest<any>,
@@ -38,6 +39,10 @@ export class ErrorInterceptorService implements HttpInterceptor {
           )
           console.log('must be it')
           return throwError('well....')
+        }
+
+        if (err.status == 404) {
+          this.router.navigate(['404'])
         }
 
         const error = err.error.message || err.statusText
