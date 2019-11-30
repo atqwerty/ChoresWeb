@@ -1,6 +1,6 @@
 <div id="main_body">
     <div id="content">
-        <div cdkDropListGroup style="display: inline-flex">
+        <div cdkDropListGroup style="display: inline-flex;">
           <div class="example-container" *ngFor="let status of statuses">
             <h2>{{status.status}}</h2>
         
@@ -36,6 +36,6 @@
         </div>-->
     </div>
 <div appGobackButtonHover  id="goback_button_container">
-    <input class="goback_button" type="button" value="go back" />
+    <input class="goback_button" type="button" value="►" (click)="goBack()" />
 </div>
 </div>

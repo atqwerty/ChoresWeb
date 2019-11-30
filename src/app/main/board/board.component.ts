@@ -47,7 +47,8 @@ export class BoardComponent implements OnInit {
     private route: ActivatedRoute,
     private boardService: BoardService,
     private dataFlowService: DataFlowService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) { 
     this.dataFlowService.passBoardData$.subscribe((data) => {
       this.tasks = data
@@ -161,5 +162,9 @@ export class BoardComponent implements OnInit {
       width: '400px',
       data: {taskTitle: task.title, taskDescription: task.description}
     })
+  }
+
+  goBack() {
+    this.router.navigate(['main'])
   }
 }
