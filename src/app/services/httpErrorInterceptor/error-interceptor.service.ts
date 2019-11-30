@@ -28,7 +28,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
           this.http.get('https://chores-backend-atqwerty.herokuapp.com/refresh', httpOptions).subscribe(
             data => {
               console.log(data)
-              next.handle(data)
+              next.handle(request)
               window.location.reload()
             },
             error => {
@@ -37,6 +37,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
             }
           )
           console.log('must be it')
+          return throwError('well....')
         }
 
         const error = err.error.message || err.statusText

@@ -14,7 +14,7 @@
     height: calc(100% - 100px);
 }
 .example-container {
-  width: 400px;
+  width: 350px;
   max-width: 100%;
   margin: 0 25px 25px 0;
   display: inline-block;
