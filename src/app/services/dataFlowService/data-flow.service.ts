@@ -30,10 +30,12 @@ export class DataFlowService {
   }
 
   passBoardData = (data) => {
+    console.log(data)
     this.passBoardDataSubject.next(data);
   }
 
   passStatusesData = (data) => {
+    console.log(data)
     this.passStatusesDataSubject.next(data);
   }
 }

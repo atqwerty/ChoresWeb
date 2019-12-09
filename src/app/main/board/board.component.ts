@@ -49,12 +49,12 @@ export class BoardComponent implements OnInit {
     private dataFlowService: DataFlowService,
     public dialog: MatDialog,
     private router: Router
-  ) { 
+  ) {
     this.dataFlowService.passBoardData$.subscribe((data) => {
+      console.log(data)
       this.tasks = data
       this.dataFlowService.passStatusesData$.subscribe((data) => {
         this.statuses = data
-        console.log(data)
       })
     })
   }
@@ -62,9 +62,8 @@ export class BoardComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.boardId = params.id
-      this.boardService.getBoard(params.id)
-      this.boardService.getStatuses(params.id)
     })
+
   }
 
   drop(event: CdkDragDrop<any>) {
