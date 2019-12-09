@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material'
-import NewBoardDialogData from '../board-list/board-list.component'
+import { NewBoardDialogData } from '../board-list/board-list.component'
 
 @Component({
   selector: 'app-new-board-component',
