@@ -18,11 +18,12 @@ import { FormsModule } from '@angular/forms';
 import { StatusDialogComponent } from './status-dialog/status-dialog.component';
 import { TaskInfoDialogComponent } from './task-info-dialog/task-info-dialog.component';
 import { GobackButtonHoverDirective } from './gobackButtonHover/goback-button-hover.directive';
+import { NewBoardComponentComponent } from './new-board-component/new-board-component.component';
 
 
 
 @NgModule({
-  declarations: [MainComponent, BoardListComponent, BoardComponent, TaskDialogComponent, StatusDialogComponent, TaskInfoDialogComponent, GobackButtonHoverDirective],
+  declarations: [MainComponent, BoardListComponent, BoardComponent, TaskDialogComponent, StatusDialogComponent, TaskInfoDialogComponent, GobackButtonHoverDirective, NewBoardComponentComponent],
   imports: [
     BrowserAnimationsModule,
     CommonModule,
@@ -36,6 +37,6 @@ import { GobackButtonHoverDirective } from './gobackButtonHover/goback-button-ho
     MatInputModule
   ],
   providers: [AuthGuard, HttpClientModule],
-  entryComponents: [TaskDialogComponent, StatusDialogComponent, TaskInfoDialogComponent]
+  entryComponents: [TaskDialogComponent, StatusDialogComponent, TaskInfoDialogComponent, NewBoardComponentComponent]
 })
 export class MainModule { }
