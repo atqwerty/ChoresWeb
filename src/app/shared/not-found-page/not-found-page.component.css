@@ -1,0 +1,14 @@
+#not_found_text {
+    font-size: 100px;
+    text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 5px 5px black;
+    color: #EB1360;
+}
+
+#fourOhFour {
+    font-size: 300px;
+    font-style: italic;
+    text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 10px 10px black;
+    margin-top: 50px;
+    margin-left: -50px;
+    color: #EB1360;
+}

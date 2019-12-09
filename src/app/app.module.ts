@@ -12,12 +12,14 @@ import { HttpTokenInterceptorService } from './services/httpTokenInterceptor/htt
 import { ErrorInterceptorService } from './services/httpErrorInterceptor/error-interceptor.service';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotFoundPageComponent } from './shared/not-found-page/not-found-page.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserAnimationsModule,

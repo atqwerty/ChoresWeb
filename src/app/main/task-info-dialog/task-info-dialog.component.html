@@ -1,7 +1,13 @@
-<h1 mat-dialog-title>{{data.taskTitle}}</h1>
+<h1 mat-dialog-title>Task: {{data.taskTitle}}</h1>
 <div mat-dialog-content>
-    <p>Description: {{data.taskDescription}}</p>
+    <mat-form-field class="text-area">
+        <input matInput [(ngModel)]="data.taskTitle"/>
+    </mat-form-field>
+    <mat-form-field class="text-area">
+        <input matInput [(ngModel)]="data.taskDescription"/>
+    </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button class="dialog-button" mat-button (click)="onNoClick()">Close</button>
+  <button class="dialog-button" mat-button [mat-dialog-close]="data" cdkFocusInitial>Apply Changes</button>
 </div>

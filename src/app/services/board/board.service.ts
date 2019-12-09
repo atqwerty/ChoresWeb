@@ -45,6 +45,10 @@ export class BoardService {
     )
   }
 
+  addBoard(title, description) {
+    return this.http.post<any>('https://chores-backend-atqwerty.herokuapp.com/board/create', { title, description })
+  }
+
   getStatuses(id) {
     this.http.get<any>('https://chores-backend-atqwerty.herokuapp.com/board/' + id + '/getStatuses').subscribe(
       data => {

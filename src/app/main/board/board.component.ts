@@ -47,13 +47,14 @@ export class BoardComponent implements OnInit {
     private route: ActivatedRoute,
     private boardService: BoardService,
     private dataFlowService: DataFlowService,
-    public dialog: MatDialog
-  ) { 
+    public dialog: MatDialog,
+    private router: Router
+  ) {
     this.dataFlowService.passBoardData$.subscribe((data) => {
+      console.log(data)
       this.tasks = data
       this.dataFlowService.passStatusesData$.subscribe((data) => {
         this.statuses = data
-        console.log(data)
       })
     })
   }
@@ -61,9 +62,8 @@ export class BoardComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.boardId = params.id
-      this.boardService.getBoard(params.id)
-      this.boardService.getStatuses(params.id)
     })
+
   }
 
   drop(event: CdkDragDrop<any>) {
@@ -161,5 +161,16 @@ export class BoardComponent implements OnInit {
       width: '400px',
       data: {taskTitle: task.title, taskDescription: task.description}
     })
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        task.title = result.taskTitle
+        task.description = result.taskDescription
+      }
+    })
+  }
+
+  goBack() {
+    this.router.navigate(['main'])
   }
 }

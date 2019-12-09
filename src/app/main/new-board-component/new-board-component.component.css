@@ -1,0 +1,16 @@
+.text-area {
+    width: 100%;
+}
+
+.dialog-button {
+    outline: none;
+    border-radius: 15px;
+    border: none;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    min-height: 30px;
+    background-color: #FFDBE9;
+    font-family: monospace;
+}
