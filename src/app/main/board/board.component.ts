@@ -161,6 +161,13 @@ export class BoardComponent implements OnInit {
       width: '400px',
       data: {taskTitle: task.title, taskDescription: task.description}
     })
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        task.title = result.taskTitle
+        task.description = result.taskDescription
+      }
+    })
   }
 
   goBack() {
