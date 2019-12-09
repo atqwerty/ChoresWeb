@@ -9,6 +9,7 @@ import { NotFoundPageComponent } from '../../shared/not-found-page/not-found-pag
 const mainRoutes: Routes = [
   { path: 'main', component: MainComponent, canActivate: [AuthGuard], pathMatch: 'full', data: { animation: 'Main' } },
   { path: 'main/board/:id', component: BoardComponent, canActivate: [AuthGuard], data: { animation: 'Board' } },
+  { path: '**', component: NotFoundPageComponent }
 ]
 
 @NgModule({
